@@ -7,9 +7,10 @@
     </div>
 </div>
 
-<div class="row animated fadeIn fasted">
+<div class="text-center">
+<div class="row">
     <div class="col">
-        <form (ngSubmit)="guardar(f)" #f="ngForm">
+        <form (ngSubmit)="guardar(f)" #f="ngForm" class="contenedor">
             <div class="form-group">
                 <label>FIREBASE ID</label>
                 <input type="text" name="" class="form-control" disabled="disabled" placeholder="FIREBASE ID" [(ngModel)]="grupo.idGrupo" name="id" required>
@@ -27,4 +28,5 @@
             </div>
         </form>
     </div>
+</div>
 </div>

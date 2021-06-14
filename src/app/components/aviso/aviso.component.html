@@ -1,1 +1,39 @@
-<p>aviso works!</p>
+<br>
+<h1 style="text-align: center;">REGISTRO DE AVISOS</h1>
+<hr>
+<div class="row text-right">
+    <div class="col">
+        <button class="btn btn-danger" routerLink="/avisos"><i class="fa fa-arrow-left"> REGRESAR</i></button>
+    </div>
+</div>
+
+<div class="text-center">
+<div class="row">
+    <div class="col">
+        <form (ngSubmit)="guardar(f)" #f="ngForm" class="contenedor">
+            <div class="form-group">
+                <label>FIREBASE ID</label>
+                <input type="text" name="" class="form-control" disabled="disabled" placeholder="FIREBASE ID" [(ngModel)]="aviso.idAviso" name="id" required>
+                <small class="form-text text-mutted">ESTE CAMPO ES AUTOGENERADO</small>
+            </div>
+
+            <div class="form-group">
+                <label>DESCRIPCION</label>
+                <input type="text" name="" class="form-control" placeholder="AVISO" [(ngModel)]="aviso.descripcionAviso" name="nombre" required>
+            </div>
+
+            <div class="form-group">
+                <label>GRUPO</label>
+                <select *ngFor="let grupo of grupos" class="form-control" [(ngModel)]="aviso.grupo" name="grupo">
+                  <option>{{grupo.idGrupo}}</option>
+                </select>
+            </div>
+
+            <hr>
+            <div class="form-group text-center">
+                <button type="submit" class="btn btn-primary w-25"><i class="fa fa-save"></i> GUARDAR</button>
+            </div>
+        </form>
+    </div>
+</div>
+</div>

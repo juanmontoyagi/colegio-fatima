@@ -4,10 +4,9 @@ export class AvisoModel {
     descripcionAviso: String;
     grupo?: String;
 
-    constructor(idAviso: String, descripcionAviso: String, grupo: String){
-        this.idAviso = idAviso;
-        this.descripcionAviso = descripcionAviso;
-        this.grupo = grupo;
+    constructor(){
+        this.idAviso = "";
+        this.descripcionAviso = "";
     }
 
 }

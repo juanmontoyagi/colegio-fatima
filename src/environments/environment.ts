@@ -5,13 +5,7 @@
 export const environment = {
   production: false,
   firebaseConfig: {
-    apiKey: "AIzaSyBtLqgM3wCb6dQmgjADzgHghss5UAlEbpA",
-    authDomain: "colegio-fatima-27e3e.firebaseapp.com",
-    databaseURL: "https://colegio-fatima-27e3e-default-rtdb.firebaseio.com",
-    projectId: "colegio-fatima-27e3e",
-    storageBucket: "colegio-fatima-27e3e.appspot.com",
-    messagingSenderId: "803483148055",
-    appId: "1:803483148055:web:d4ffd0ecf7d7f6c247e152"
+
   }
 };
 

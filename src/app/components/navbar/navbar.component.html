@@ -17,7 +17,9 @@
             <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
               <li><a class="dropdown-item" href="#">TAREAS</a></li>
               <li><a class="dropdown-item" href="#">NOTAS</a></li>
-              <li><a class="dropdown-item" href="#">AVISO</a></li>
+              <li routerLinkActive="active">
+                <a class="dropdown-item" [routerLink]="['/aviso']">AVISO</a>
+              </li>
               <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item" href="#">AUTORIZACION</a></li>
             </ul>
