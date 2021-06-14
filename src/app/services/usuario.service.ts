@@ -39,19 +39,10 @@ export class UsuarioService {
     );
   }
 
-
   private crearArreglo(usuariosObj: Object){
-    const usuarios: UsuarioModel[] = [];
-    console.log(usuariosObj)
+    const usuarios: UsuarioModel[]= [];
+    console.log(usuariosObj);
 
-    if (usuariosObj == null) { return []; }
-    Object.keys(usuariosObj).forEach(key =>{
-      const usuario: UsuarioModel = usuariosObj[key];
-      usuario.idUsuario = key;
-      if (usuario.tipoUsuario == '2') {
-       usuarios.push(usuario);
-      }
-    });
     return usuarios;
   }
 
