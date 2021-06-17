@@ -12,26 +12,26 @@
     <div class="col">
         <form (ngSubmit)="guardar(f)" #f="ngForm" class="contenedor">
             <div class="form-group">
-                <label>FIREBASE ID</label>
+                <label style="font-weight: bold;">FIREBASE ID</label>
                 <input type="text" name="" class="form-control" disabled="disabled" placeholder="FIREBASE ID" [(ngModel)]="aviso.idAviso" name="id" required>
                 <small class="form-text text-mutted">ESTE CAMPO ES AUTOGENERADO</small>
             </div>
-
+            <br>
             <div class="form-group">
-                <label>DESCRIPCION</label>
+                <label style="font-weight: bold;">DESCRIPCION</label>
                 <input type="text" name="" class="form-control" placeholder="AVISO" [(ngModel)]="aviso.descripcionAviso" name="nombre" required>
             </div>
-
+            <br>
             <div class="form-group">
-                <label>GRUPO</label>
-                <select *ngFor="let grupo of grupos" class="form-control" [(ngModel)]="aviso.grupo" name="grupo">
-                  <option>{{grupo.idGrupo}}</option>
+                <label style="font-weight: bold;">GRUPO</label>
+                <select class="form-control" [(ngModel)]="aviso.grupo" name="grupo">
+                  <option *ngFor="let grupo of grupos;" [ngValue]="grupo">{{grupo.descripcionGrupo}}</option>
                 </select>
             </div>
-
+            <br>
             <hr>
             <div class="form-group text-center">
-                <button type="submit" class="btn btn-primary w-25"><i class="fa fa-save"></i> GUARDAR</button>
+                <button type="submit" class="btn btn-dark w-25"><i class="fa fa-save"></i> GUARDAR</button>
             </div>
         </form>
     </div>

@@ -9,7 +9,7 @@ import { map, delay } from 'rxjs/operators';
 export class UsuarioService {
 
   // URL ES EL ENDPOINT DONDE POSTEARÉ LOS DATOS
-  private url = 'https://colegio-fatima-27e3e-default-rtdb.firebaseio.com/';
+  private url = 'https://colegio-fatima-62409-default-rtdb.firebaseio.com/';
 
   loggedIn: boolean = false;
   tipoUsuario: String = "";

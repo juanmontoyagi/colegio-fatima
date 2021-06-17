@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormGroup, NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { UsuarioModel } from 'src/app/models/usuario.model';
@@ -36,7 +36,6 @@ export class RegistroComponent implements OnInit {
     peticion = this.usuarioService.crearPersona(this.usuario);
     console.log("SE GUARDÓ EXITOSAMENTE");
   //}
-
   }
 
 }

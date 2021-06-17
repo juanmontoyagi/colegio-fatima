@@ -24,8 +24,8 @@ export class AvisoService {
     )
   }
 
-  getGrupos(): Observable<GrupoModel[]>{
-    return this.http.get<GrupoModel[]>(`${this.url}/grupo.json`)
+  getGrupos(){
+    return this.http.get(`${this.url}/grupo.json`)
     .pipe(
       map(this.crearArregloGrupos)
     );
@@ -37,13 +37,17 @@ export class AvisoService {
     console.log(gruposObj);
 
     if (gruposObj == null) { return []; }
-    Object.keys(gruposObj).forEach(key=>{
-      const grupo: GrupoModel = (key: string) => (gruposObj: Record<string, any>) => gruposObj[key];
-      grupo.idGrupo = key;
-      console.log(grupo.idGrupo);
-      grupos.push(grupo);
+    Object.entries(gruposObj).forEach(key=>{
+    const grupo: GrupoModel = key[1];
+
+    grupos.push(grupo);
+
     });
     return grupos;
   }
+
+  
+
+
 
 }
