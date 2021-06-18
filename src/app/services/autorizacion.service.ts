@@ -24,7 +24,7 @@ export class AutorizacionService {
   }
 
   getEstudiantes(){
-    return this.http.get(`${this.url}/usuarios.json`)
+    return this.http.get(`${this.url}/usuario.json`)
     .pipe(
       map(this.crearArregloEstudiantes)
     )
