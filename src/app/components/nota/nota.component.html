@@ -1,1 +1,44 @@
-<p>nota works!</p>
+<br>
+<h1 style="text-align: center;">GESTIÓN DE NOTAS</h1>
+<hr>
+<div class="row text-right">
+    <div class="col">
+        <button class="btn btn-danger" routerLink="/home"><i class="fa fa-arrow-left"> REGRESAR</i></button>
+    </div>
+</div>
+
+<div class="text-center">
+<div class="row">
+    <div class="col">
+        <form (ngSubmit)="guardar(f)" #f="ngForm" class="contenedor">
+            <div class="form-group">
+                <label style="font-weight: bold;">FIREBASE ID</label>
+                <input type="text" name="" class="form-control" disabled="disabled" placeholder="FIREBASE ID" [(ngModel)]="nota.idNota" name="id" required>
+                <small class="form-text text-mutted">ESTE CAMPO ES AUTOGENERADO</small>
+            </div>
+            <br>
+            <div class="form-group input-group-lg">
+                <label style="font-weight: bold;">NOTA DEFINITIVA</label>
+                <input type="text" class="form-control input-lg" placeholder="NOTA GENERAL" [(ngModel)]="nota.resultadoNota" name="resultado" required>
+            </div>
+            <br>
+            <div class="form-group input-group-lg">
+                <label style="font-weight: bold;">DESCRIPCION DE LA NOTA</label>
+                <input type="text" class="form-control input-lg" placeholder="DESCRIPCION DE LA NOTA" [(ngModel)]="nota.notaDescripcion" name="descripcion" required>
+            </div>
+            <br>
+            <div class="form-group">
+                <label style="font-weight: bold;">TAREA</label>
+                <select class="form-control" [(ngModel)]="nota.tarea" name="tarea">
+                  <option *ngFor="let tarea of tareas;" [ngValue]="tarea">{{tarea.nombreTarea}}</option>
+                </select>
+            </div>
+            <br>
+            <hr>
+            <div class="form-group text-center">
+                <button type="submit" class="btn btn-dark w-25"><i class="fa fa-save"></i> GUARDAR</button>
+            </div>
+        </form>
+    </div>
+</div>
+</div>

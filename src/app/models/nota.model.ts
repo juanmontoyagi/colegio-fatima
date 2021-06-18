@@ -1,14 +1,14 @@
 export class NotaModel {
 
     idNota: String;
+    resultadoNota: number;
     tarea?: String;
-    estudiante?: String;
     notaDescripcion?: String;
 
-    constructor(idNota: String, tarea: String, estudiante: String, notaDescripcion: String){
-        this.idNota = idNota;
-        this.tarea = tarea;
-        this.estudiante = estudiante;
-        this.notaDescripcion = notaDescripcion;
+    constructor(){
+        this.idNota = "";
+        this.resultadoNota = 0;
+        this.tarea = "";
+        this.notaDescripcion = "";
     }
 }
