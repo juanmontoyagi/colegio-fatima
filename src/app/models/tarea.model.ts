@@ -4,11 +4,11 @@ export class TareaModel {
     descripcionTarea: String;
     estudiante?: String;
 
-    constructor(idTarea: String, nombreTarea: String, descripcionTarea: String, estudiante: String){
-        this.idTarea = idTarea;
-        this.nombreTarea = nombreTarea;
-        this.descripcionTarea = descripcionTarea;
-        this.estudiante = estudiante;
+    constructor(){
+        this.idTarea = "";
+        this.nombreTarea = "";
+        this.descripcionTarea = "";
+        this.estudiante = "";
     }
 
 }
