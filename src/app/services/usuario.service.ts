@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { UsuarioModel } from '../models/usuario.model';
 import { map, delay } from 'rxjs/operators';
+import { GrupoModel } from '../models/grupo.model';
 
 @Injectable({
   providedIn: 'root'
@@ -34,16 +35,38 @@ export class UsuarioService {
   getPersonas(){
     return this.http.get(`${this.url}/usuario.json`)
     .pipe(
-      map(this.crearArreglo),
+      map(this.crearArregloUsuario),
       delay(1500)
     );
   }
 
-  private crearArreglo(usuariosObj: Object){
+  private crearArregloUsuario(usuariosObj: Object){
     const usuarios: UsuarioModel[]= [];
     console.log(usuariosObj);
-
+    if (usuariosObj == null) { return []; }
+    Object.entries(usuariosObj).forEach(key=> {
+      const usuario: UsuarioModel = key[1];
+      usuarios.push(usuario);
+    })
     return usuarios;
+  }
+
+  getGrupos(){
+    return this.http.get(`${this.url}/grupo.json`)
+    .pipe(
+      map(this.crearArregloGrupos)
+    );
+  }
+
+  private crearArregloGrupos(gruposObj: Object){
+    const grupos: GrupoModel[] = [];
+    console.log(gruposObj);
+    if (gruposObj == null) { return []; }
+    Object.entries(gruposObj).forEach(key=>{
+    const grupo: GrupoModel = key[1];
+    grupos.push(grupo);
+    });
+    return grupos;
   }
 
 }

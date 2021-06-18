@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
+import { GrupoModel } from 'src/app/models/grupo.model';
 import { UsuarioModel } from 'src/app/models/usuario.model';
 import { UsuarioService } from 'src/app/services/usuario.service';
 
@@ -13,12 +14,18 @@ import { UsuarioService } from 'src/app/services/usuario.service';
 export class RegistroComponent implements OnInit {
 
   padres: UsuarioModel[] = [];
+  grupos: GrupoModel[] = [];
   usuario = new UsuarioModel();
 
   constructor(private usuarioService: UsuarioService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    
+    this.usuarioService.getPersonas().subscribe(resp=>{
+      this.padres = resp;
+    });
+    this.usuarioService.getGrupos().subscribe(resp=>{
+      this.grupos = resp;
+    })
   }
 
   guardar(form: NgForm){
@@ -26,16 +33,11 @@ export class RegistroComponent implements OnInit {
       console.log("FORMULARIO NO VALIDO");
       return;
     }
-
-    // CREAR UNA VARIABLE PARA CENTRALIZAR LA PETICIÓN SÍ ES GUARDAR O ACTUALIZAR
-    let peticion: Observable<any>;
-
-    //if (this.usuario.idUsuario) {
-      // ACÁ PARA ACTUALIZARLO
-    //} else {
-    peticion = this.usuarioService.crearPersona(this.usuario);
+    this.usuarioService.crearPersona(this.usuario)
+    .subscribe(resp=>{
+      console.log(resp);
+    });
     console.log("SE GUARDÓ EXITOSAMENTE");
-  //}
   }
 
 }

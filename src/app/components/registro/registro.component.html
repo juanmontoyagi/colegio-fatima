@@ -32,7 +32,7 @@
             <br>
             <div class="form-group">
                 <label>CONTRASEÑA</label>
-                <input type="text" class="form-control" placeholder="CONTRASEÑA" [(ngModel)]="usuario.contrasena" name="contrasena" required>
+                <input type="text" class="form-control" placeholder="CONTRASEÑA" name="contrasena">
             </div>
             <br>
             <div class="form-group">
@@ -51,14 +51,16 @@
             <br>
             <div class="form-group" *ngIf="usuario.tipoUsuario == 'ESTUDIANTE'">
                 <label>ACUDIANTE</label>
-                <select *ngFor="let padre of padres" class="form-control" [(ngModel)]="usuario.acudiente" name="acudiente">
-                    <option>{{padre.nombreUsuario}}</option>
+                <select class="form-control" [(ngModel)]="usuario.acudiente" name="acudiente">
+                    <option *ngFor="let padre of padres">{{padre.nombreUsuario}}</option>
                 </select>
             </div>
             <br>
             <div class="form-group" *ngIf="usuario.tipoUsuario == 'ESTUDIANTE'">
-                <label>GRUPO</label>
-                <input type="text" class="form-control" placeholder="GRUPO" [(ngModel)]="usuario.grupo" name="grupo" required> 
+                <label style="font-weight: bold;">GRUPO</label>
+                <select class="form-control" [(ngModel)]="usuario.grupo" name="grupo">
+                  <option *ngFor="let grupo of grupos;" [ngValue]="grupo">{{grupo.descripcionGrupo}}</option>
+                </select>
             </div>
             <br>
             <hr>

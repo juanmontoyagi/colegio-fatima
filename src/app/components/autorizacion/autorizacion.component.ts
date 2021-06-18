@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { AutorizacionModel } from 'src/app/models/autorizacion.model';
+import { UsuarioModel } from 'src/app/models/usuario.model';
+import { AutorizacionService } from 'src/app/services/autorizacion.service';
 
 @Component({
   selector: 'app-autorizacion',
@@ -7,9 +12,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AutorizacionComponent implements OnInit {
 
-  constructor() { }
+  autorizacion = new AutorizacionModel();
+  estudiantes: UsuarioModel[] = [];
+
+  constructor(private autorizacionService: AutorizacionService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.autorizacionService.getEstudiantes().subscribe(resp=>{
+      this.estudiantes = resp;
+    });
   }
+
+  guardar(form: NgForm){
+    if (form.invalid) {
+      console.log('FORMULARIO NO VALIDO');
+    return;
+    }
+    this.autorizacionService.crearAutorizacion(this.autorizacion)
+    .subscribe(resp=>{
+      console.log(resp);
+    })
+  }
+
+
 
 }
